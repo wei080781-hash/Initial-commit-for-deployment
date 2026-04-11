@@ -15,28 +15,28 @@
         </div>
     @endif
 
-    <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden">
-        <table class="w-full text-left">
+    <div class="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden overflow-x-auto">
+        <table class="w-full text-left min-w-[600px]">
             <thead class="bg-stone-50 border-b border-stone-100 text-stone-500 text-sm uppercase">
                 <tr>
-                    <th class="px-6 py-4">圖片</th>
-                    <th class="px-6 py-4">標題</th>
-                    <th class="px-6 py-4">排序</th>
-                    <th class="px-6 py-4 text-right">操作</th>
+                    <th class="px-4 py-4 md:px-6">圖片</th>
+                    <th class="px-4 py-4 md:px-6">標題</th>
+                    <th class="px-4 py-4 md:px-6">排序</th>
+                    <th class="px-4 py-4 md:px-6 text-right">操作</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-stone-100">
                 @foreach($carousels as $carousel)
                 <tr class="hover:bg-stone-50 transition">
-                    <td class="px-6 py-4">
-                        <img src="{{ asset('storage/' . $carousel->image_path) }}" alt="{{ $carousel->title }}" class="w-32 h-20 object-cover rounded-lg">
+                    <td class="px-4 py-4 md:px-6">
+                        <img src="{{ asset('storage/' . $carousel->image_path) }}" alt="{{ $carousel->title }}" class="w-24 h-16 md:w-32 md:h-20 object-cover rounded-lg">
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-4 py-4 md:px-6">
                         <div class="text-stone-800 font-medium">{{ $carousel->title ?? '未命名' }}</div>
-                        <div class="text-stone-400 text-sm">{{ $carousel->description }}</div>
+                        <div class="text-stone-400 text-sm hidden md:block">{{ $carousel->description }}</div>
                     </td>
-                    <td class="px-6 py-4 text-stone-500">{{ $carousel->order }}</td>
-                    <td class="px-6 py-4 text-right space-x-2">
+                    <td class="px-4 py-4 md:px-6 text-stone-500">{{ $carousel->order }}</td>
+                    <td class="px-4 py-4 md:px-6 text-right space-x-2">
                         <a href="{{ route('admin.carousels.edit', $carousel) }}" class="text-blue-500 hover:underline">編輯</a>
                         <form action="{{ route('admin.carousels.destroy', $carousel) }}" method="POST" class="inline-block" onsubmit="return confirm('確定要刪除嗎？')">
                             @csrf

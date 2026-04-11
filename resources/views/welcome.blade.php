@@ -120,22 +120,22 @@
             <div class="w-12 h-1 bg-orange-400 mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24 justify-items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-12 gap-y-16 md:gap-y-24 justify-items-center">
             @forelse($products as $product)
             <div class="flex flex-col group cursor-pointer w-full max-w-[400px]">
                 <!-- 圖片容器 -->
-                <div class="w-full aspect-square overflow-hidden bg-[#F9F9F9] relative mb-3">
+                <div class="w-full aspect-[3/4] md:aspect-square overflow-hidden bg-[#F9F9F9] relative mb-3">
                     <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" 
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-colors duration-700"></div>
                 </div>
                 
                 <!-- 文字資訊：縮小間距並放大字體至 14px 且加粗 -->
-                <div class="flex flex-col text-left space-y-1">
-                    <h3 class="text-[14px] font-bold text-stone-800 tracking-[0.1em] uppercase transition-colors duration-300 group-hover:text-orange-400">
+                <div class="flex flex-col text-left space-y-1 px-2 md:px-0">
+                    <h3 class="text-[14px] md:text-[16px] font-bold text-stone-800 tracking-[0.1em] uppercase transition-colors duration-300 group-hover:text-orange-400">
                         {{ $product->name }}
                     </h3>
-                    <p class="text-[14px] font-bold text-stone-900 tracking-[0.1em]">
+                    <p class="text-[14px] md:text-[16px] font-bold text-stone-900 tracking-[0.1em]">
                         NT$ {{ number_format($product->price) }}
                     </p>
                 </div>

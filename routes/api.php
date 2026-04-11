@@ -20,3 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // 會員登出 (POST /api/logout)
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+// 手機版 API 路由
+Route::prefix('mobile')->group(function () {
+    Route::get('/carousels', [App\Http\Controllers\Api\Mobile\CarouselController::class, 'index']);
+});
